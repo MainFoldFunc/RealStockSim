@@ -16,6 +16,8 @@ func main() {
 	server.Post("/users/loginUser", handlers.LoginHandler)
 	server.Post("/users/logoutUser", handlers.LogoutHandler)
 
+	server.Post("/portfolio/createPortfolio", handlers.CreatePortfolioHandler)
+
 	fmt.Println("Server starting at port 8080")
 	server.Listen(":8080")
 }
