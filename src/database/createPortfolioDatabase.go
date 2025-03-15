@@ -5,9 +5,8 @@ import (
 )
 
 func CreatePortfolioDatabase(portfolio *structs.Portfolio) error {
-	err := DB.Create(&portfolio)
-	if err != nil {
-		return err.Error
+	if err := DB.Create(&portfolio).Error; err != nil {
+		return err
 	}
 	return nil
 }

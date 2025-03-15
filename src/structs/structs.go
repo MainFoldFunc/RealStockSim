@@ -14,7 +14,7 @@ type LoginUser struct {
 
 type Portfolio struct {
 	ID           uint   `json:"id"`
-	User         string `json:"User" gorm:"unique;not null"`
-	Money        uint   `json:"money" gorm:"unique;not null"`
-	StocksInHand string `json:"stocksinhand" gorm:"unique;not null"`
+	UserID       uint   `json:"user_id" gorm:"not null"`
+	Money        uint   `json:"money"`
+	StocksInHand string `json:"stocksinhand"`
 }

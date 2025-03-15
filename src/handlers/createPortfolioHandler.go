@@ -35,11 +35,11 @@ func CreatePortfolioHandler(c *fiber.Ctx) error {
 	}
 
 	// Associate the userID with the portfolio
-	portfolio.ID = userID
+	portfolio.UserID = userID
 
 	// Save the portfolio to the database
 	if err := database.CreatePortfolioDatabase(&portfolio); err != nil {
-		log.Println("Error in CreatePortfolioDatabase")
+		log.Println("Error in CreatePortfolioDatabase:", err)
 		return c.Status(fiber.StatusInternalServerError).JSON(map[string]string{"error": "Error while creating portfolio"})
 	}
 
