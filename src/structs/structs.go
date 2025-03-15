@@ -25,3 +25,13 @@ type Stocks struct {
 	CurrPrice uint   `json:"currPrice"`
 	AllAmount string `json:"allAmount"`
 }
+
+/*
+	10 : 1000 amount : price
+*/
+
+type BuyingStocks struct {
+	Name     string `json:"name"`
+	Amount   uint   `json:"amount"`
+	MaxPrice uint   `json:"maxPrice"`
+}
