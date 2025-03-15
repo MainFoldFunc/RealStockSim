@@ -22,5 +22,7 @@ curl -X POST http://localhost:8080/portfolio/createPortfolio \
     "money": 1000,
     "stocksinhand": "AAPL:10,GOOGL:5"
   }'
-  curl -X POST http://localhost:8080/portfolio/deletePortfolio \
-    -b cookies.txt
+curl -X POST http://localhost:8080/portfolio/deletePortfolio \
+  -b cookies.txt
+curl -X POST http://localhost:8080/users/removeUser\
+  -b cookies.txt

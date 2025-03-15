@@ -15,7 +15,7 @@ func main() {
 	server.Post("/users/registerUser", handlers.RegisterHandler)
 	server.Post("/users/loginUser", handlers.LoginHandler)
 	server.Post("/users/logoutUser", handlers.LogoutHandler)
-	//server.Post("/users/removeUser", handlers.RemoveUserHandler)
+	server.Post("/users/removeUser", handlers.RemoveUserHandler)
 
 	server.Post("/portfolio/createPortfolio", handlers.CreatePortfolioHandler)
 	server.Post("/portfolio/deletePortfolio", handlers.DeletePortfolioHandler)
