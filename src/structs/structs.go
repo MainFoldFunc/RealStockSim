@@ -18,3 +18,10 @@ type Portfolio struct {
 	Money        uint   `json:"money"`
 	StocksInHand string `json:"stocksinhand"`
 }
+
+type Stocks struct {
+	ID        uint   `json:"id"`
+	Name      string `json:"name"`
+	CurrPrice uint   `json:"currPrice"`
+	AllAmount string `json:"allAmount"`
+}

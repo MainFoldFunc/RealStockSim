@@ -20,6 +20,8 @@ func main() {
 	server.Post("/portfolio/createPortfolio", handlers.CreatePortfolioHandler)
 	server.Post("/portfolio/deletePortfolio", handlers.DeletePortfolioHandler)
 
+	server.Post("/stock/createStock", handlers.CreateStockHandler)
+
 	fmt.Println("Server starting at port 8080")
 	server.Listen(":8080")
 }

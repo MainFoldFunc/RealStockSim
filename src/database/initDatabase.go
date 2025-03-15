@@ -21,6 +21,7 @@ func Init() {
 	// AutoMigrate to create/update table structure
 	DB.AutoMigrate(&structs.Users{})
 	DB.AutoMigrate(&structs.Portfolio{})
+	DB.AutoMigrate(&structs.Stocks{})
 
 	log.Println("Database connected successfully")
 }

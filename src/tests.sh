@@ -1,3 +1,6 @@
+#!/bin/bash
+
+echo "Registering User..."
 curl -X POST "http://localhost:8080/users/registerUser" \
      -H "Content-Type: application/json" \
      -d '{
@@ -5,6 +8,9 @@ curl -X POST "http://localhost:8080/users/registerUser" \
            "password": "securepassword",
            "portfoliokey": null
          }'
+
+
+echo "Logging in..."
 curl -X POST http://localhost:8080/users/loginUser \
   -H "Content-Type: application/json" \
   -d '{
@@ -12,17 +18,49 @@ curl -X POST http://localhost:8080/users/loginUser \
     "password": "securepassword"
   }' \
   -c cookies.txt
+
+
+echo "Creating Stock..."
+echo "Creating Stock..."
+curl -X POST http://localhost:8080/stock/createStock \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{
+  "name": "BTC"
+    "currPrice": 1000,
+    "allAmount": "10:1000"
+  }'
+
+
+echo "Logging out..."
 curl -X POST http://localhost:8080/users/logoutUser \
-  -b cookies.txt
+  -b cookies.txt \
+  -H "Content-Type: application/json"
+
+
+echo "Creating Portfolio..."
 curl -X POST http://localhost:8080/portfolio/createPortfolio \
   -b cookies.txt \
   -H "Content-Type: application/json" \
   -d '{
-    "User": "some_user",
     "money": 1000,
     "stocksinhand": "AAPL:10,GOOGL:5"
   }'
+
+
+echo "Deleting Portfolio..."
 curl -X POST http://localhost:8080/portfolio/deletePortfolio \
-  -b cookies.txt
-curl -X POST http://localhost:8080/users/removeUser\
-  -b cookies.txt
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{}'
+
+
+echo "Removing User..."
+curl -X POST http://localhost:8080/users/removeUser \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{}'
+
+
+echo "Done!"
+
