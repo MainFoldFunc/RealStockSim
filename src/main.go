@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+	"log"
+
 	"github.com/MainFoldFunc/RealStockSim/src/database"
 	"github.com/MainFoldFunc/RealStockSim/src/handlers"
 	"github.com/gofiber/fiber/v2"
@@ -22,9 +24,8 @@ func main() {
 
 	server.Post("/stock/createStock", handlers.CreateStockHandler)
 	server.Post("/stock/delteStock", handlers.DeleteStockHandler)
-
-	server.Post("/stock/buyStock", handlers.BuyStockHandler)
+	server.Post("/stock/updateStock", handlers.UpdateStocksHandler)
 
 	fmt.Println("Server starting at port 8080")
-	server.Listen(":8080")
+	log.Fatal(server.Listen(":8080"))
 }

@@ -17,17 +17,7 @@ curl -X POST http://localhost:8080/users/loginUser \
     "password": "securepassword"
   }' \
   -c cookies.txt
-
-echo "Creating Stock..."
-curl -X POST http://localhost:8080/stock/createStock \
-  -b cookies.txt \
-  -H "Content-Type: application/json" \
-  -d '{
-    "name": "BTC",
-    "currPrice": 1000,
-    "allAmount": "10:1000, 20:3000"
-  }'
-
+  
 echo "Creating Portfolio..."
 curl -X POST http://localhost:8080/portfolio/createPortfolio \
   -b cookies.txt \
@@ -37,15 +27,26 @@ curl -X POST http://localhost:8080/portfolio/createPortfolio \
     "stocksinhand": ""
   }'
 
-echo "Buying Stock..."
-curl -X POST http://localhost:8080/stock/buyStock \
+echo "Creating Stock..."
+curl -X POST http://localhost:8080/stock/createStock \
   -b cookies.txt \
   -H "Content-Type: application/json" \
   -d '{
     "name": "BTC",
-    "amount": 30,
-    "maxPrice": 3000
+    "currPrice": 1000,
+    "allAmount": "10:1000:1,20:3000:1"
   }'
+  
+echo "Updating Stock..."
+curl -X POST http://localhost:8080/stock/updateStock \
+  -b cookies.txt \
+  -H "Content-Type: application/json" \
+  -d '{
+    "id": 1,
+    "amountToAdd": 5,
+    "price": 3000
+  }'
+
 # echo "Logging out..."
 # curl -X POST http://localhost:8080/users/logoutUser \
 #   -b cookies.txt \

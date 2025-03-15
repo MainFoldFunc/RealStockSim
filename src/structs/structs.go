@@ -26,12 +26,8 @@ type Stocks struct {
 	AllAmount string `json:"allAmount"`
 }
 
-/*
-	10 : 1000 amount : price
-*/
-
-type BuyingStocks struct {
-	Name     string `json:"name"`
-	Amount   uint   `json:"amount"`
-	MaxPrice uint   `json:"maxPrice"`
+type UpdateStock struct {
+	ID          uint `json:"id"`
+	AmountToAdd uint `json:"amountToAdd"`
+	Price       uint `json:"price"`
 }
