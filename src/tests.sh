@@ -25,7 +25,7 @@ curl -X POST http://localhost:8080/stock/createStock \
   -d '{
     "name": "BTC",
     "currPrice": 1000,
-    "allAmount": "10:1000"
+    "allAmount": "10:1000, 20:3000"
   }'
 
 echo "Creating Portfolio..."
@@ -43,8 +43,8 @@ curl -X POST http://localhost:8080/stock/buyStock \
   -H "Content-Type: application/json" \
   -d '{
     "name": "BTC",
-    "amount": 5,
-    "maxPrice": 1000
+    "amount": 30,
+    "maxPrice": 3000
   }'
 # echo "Logging out..."
 # curl -X POST http://localhost:8080/users/logoutUser \
